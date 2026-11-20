@@ -403,6 +403,19 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/priv-app/DeviceAsWebcam/DeviceAsWebcam.apk \
     system/priv-app/DeviceAsWebcam/lib/arm64/libjni_deviceAsWebcam.so
 
+# GMS System Packages
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/app/GoogleExtShared/GoogleExtShared.apk \
+    system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+    system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+    system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk \
+    system/priv-app/TagGoogle/TagGoogle.apk \
+    system/app/GoogleExtShared/% \
+    system/app/GooglePrintRecommendationService/% \
+    system/priv-app/DocumentsUIGoogle/% \
+    system/priv-app/GooglePackageInstaller/% \
+    system/priv-app/TagGoogle/%
+
 # Google Camera
 $(call inherit-product-if-exists, vendor/google/camera/config.mk)
 
