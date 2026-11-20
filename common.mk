@@ -396,9 +396,6 @@ include hardware/google/pixel/mm/device_gki.mk
 # AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
-# BCR Call Recording
-$(call inherit-product-if-exists, vendor/bcr/bcr.mk)
-
 # DeviceAsWebcam
 TARGET_BUILD_DEVICE_AS_WEBCAM := true
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
