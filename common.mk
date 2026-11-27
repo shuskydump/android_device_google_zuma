@@ -324,19 +324,19 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
     DMServiceOverlayProductZuma \
-    EuiccSupportPixelOverlay \
+    EuiccSupportPixelOverlayZuma \
     FrameworkResOverlayProductZuma \
     FrameworkResOverlayVendorZuma \
-    GazeOverlay \
-    GoogleConfigOverlay \
-    GooglePermissionControllerSafetyCenterOverlay \
-    PixelConfigOverlay2019 \
-    PixelConfigOverlay2021 \
-    PixelConfigOverlayCommon \
-    PixelConnectivityOverlay2023 \
+    GazeOverlayZuma \
+    GoogleConfigOverlayZuma \
+    GooglePermissionControllerSafetyCenterOverlayZuma \
+    PixelConfigOverlay2019Zuma \
+    PixelConfigOverlay2021Zuma \
+    PixelConfigOverlayCommonZuma \
+    PixelConnectivityOverlay2023Zuma \
     PixelDisplayServiceOverlayProductZuma \
-    PixelNfcOverlayCommon \
-    PixelTetheringOverlay2021 \
+    PixelNfcOverlayCommonZuma \
+    PixelTetheringOverlay2021Zuma \
     PixelWifiOverlay2024_midyearZuma \
     SafetyRegulatoryInfoOverlayProductZuma \
     SettingsGoogleOverlayProductZuma \
@@ -348,8 +348,6 @@ PRODUCT_PACKAGES += \
     TelephonyProviderOverlayProductZuma
 
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayLineageZuma \
-    LineageSdkOverlayZuma \
     SettingsOverlayZuma \
     SimpleDeviceConfigOverlayZuma
 
@@ -414,10 +412,23 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/app/GooglePrintRecommendationService/% \
     system/priv-app/DocumentsUIGoogle/% \
     system/priv-app/GooglePackageInstaller/% \
-    system/priv-app/TagGoogle/%
+    system/priv-app/TagGoogle/% \
+    system/etc/default-permissions/default-permissions_googleprintrecommendationservice.xml \
+    system/etc/permissions/com.google.android.networkstack.xml \
+    system/etc/sysconfig/preinstalled-packages-generic-system-google.xml \
+    system/etc/default-permissions/% \
+    system/etc/permissions/% \
+    system/etc/sysconfig/%
+
+# GMS
+WITH_GMS ?= true
 
 # Google Camera
 $(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
+# Build keys
+BUILD_KEYS := release-keys
+BUILD_VERSION_TAGS := release-keys
 
 # UDFPS
 TARGET_HAS_UDFPS := true

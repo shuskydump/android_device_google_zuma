@@ -8,6 +8,12 @@
 include build/make/target/board/BoardConfigMainlineCommon.mk
 include build/make/target/board/BoardConfigPixelCommon.mk
 
+# Broken build Rules
+BUILD_BROKEN_DUP_RULES := true
+
+# Disable artifact path requirements for GMS prebuilts
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
 # Include settings for 16k developer option, if enabled
 ifneq ($(wildcard $(TARGET_KERNEL_DIR)/16kb/),)
 include device/google/zuma/BoardConfig-16k-common.mk
@@ -273,4 +279,5 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
 # Protected VM firmware
 BOARD_PVMFWIMAGE_PARTITION_SIZE := 0x00100000
 
--include device/google/zuma/BoardConfigEvolution.mk
+# Reserve space for gapps install
+-include vendor/halcyon/config/BoardConfigReservedSize.mk
